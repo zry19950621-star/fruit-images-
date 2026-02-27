@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星溪生命 Rivus Stellge | 家族私属生命管家</title>
+    <title>星溪生命 Rivus Stellge | 家庭私属生命管家</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,13 +13,13 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-blue': '#1E4ED8', // 呼应 Logo 深蓝色调
-                        'brand-cyan': '#0EA5E9', // 呼应 Logo 浅蓝波浪
-                        'brand-orange': '#F59E0B', 
-                        'brand-dark': '#0F172A', 
-                        'brand-bg': '#F8FAFC', 
+                        'brand-blue': '#1E4ED8', // Trust & Professionalism (Medical)
+                        'brand-cyan': '#0EA5E9', // Life & Tech flow
+                        'brand-orange': '#F59E0B', // Human Warmth & Wealth
+                        'brand-dark': '#0F172A', // Slate 900 for premium text/bg
+                        'brand-bg': '#F8FAFC', // Slate 50
                         'brand-surface': '#FFFFFF', 
-                        'brand-muted': '#64748B', 
+                        'brand-muted': '#64748B', // Slate 500
                     },
                     fontFamily: {
                         'serif': ['"Noto Serif SC"', 'serif'],
@@ -36,25 +36,69 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
-        body { font-family: 'Noto Sans SC', sans-serif; background-color: #F8FAFC; color: #0F172A; }
-        h1, h2, h3, .serif-font { font-family: 'Noto Serif SC', serif; }
-        .chart-container { position: relative; width: 100%; max-width: 500px; height: 320px; margin: auto; }
-        @media (min-width: 768px) { .chart-container { height: 380px; } }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #F8FAFC; 
+            color: #0F172A;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        /* Essential Chart Container Constraints */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 320px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px; 
+            }
+        }
+
         html { scroll-behavior: smooth; }
+
+        /* Custom Elegant Gradients */
         .text-gradient {
             background: linear-gradient(135deg, #1E4ED8 0%, #0EA5E9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .bg-gradient-premium { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
-        .timeline-line::before {
-            content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 2px;
-            background: linear-gradient(to bottom, #1E4ED8 0%, #0EA5E9 50%, #F59E0B 100%);
-            opacity: 0.2; z-index: 0;
+        
+        .bg-gradient-premium {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
         }
-        .value-card { transition: all 0.4s ease; }
-        .value-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(30, 78, 216, 0.12); }
-        .value-card:hover .icon-wrapper { background-color: #1E4ED8; color: white; }
+
+        /* Timeline connector */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 24px;
+            width: 2px;
+            background: linear-gradient(to bottom, #1E4ED8 0%, #0EA5E9 50%, #F59E0B 100%);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        /* Card Hover Effects */
+        .value-card {
+            transition: all 0.4s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(30, 78, 216, 0.12);
+        }
+        .value-card:hover .icon-wrapper {
+            background-color: #1E4ED8;
+            color: white;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-blue selection:text-white">
@@ -68,14 +112,14 @@
                         星溪生命
                     </div>
                 </div>
-                <div class="hidden lg:flex space-x-8 font-medium text-sm text-brand-muted">
-                    <a href="#philosophy" class="hover:text-brand-blue transition">品牌理念</a>
-                    <a href="#personas" class="hover:text-brand-blue transition">专属服务</a>
-                    <a href="#cvp" class="hover:text-brand-blue transition">权益全景</a>
-                    <a href="#services" class="hover:text-brand-blue transition">资源矩阵</a>
-                    <a href="#timeline" class="hover:text-brand-blue transition">年度排期</a>
+                <div class="hidden lg:flex space-x-8 font-medium text-sm">
+                    <a href="#philosophy" class="text-brand-muted hover:text-brand-blue transition">品牌理念</a>
+                    <a href="#personas" class="text-brand-muted hover:text-brand-blue transition">专属服务</a>
+                    <a href="#cvp" class="text-brand-muted hover:text-brand-blue transition">权益全景</a>
+                    <a href="#services" class="text-brand-muted hover:text-brand-blue transition">资源矩阵</a>
+                    <a href="#timeline" class="text-brand-muted hover:text-brand-blue transition">年度排期</a>
                 </div>
-                <button onclick="document.getElementById('contact').scrollIntoView()" class="bg-brand-blue text-white px-6 py-2 rounded-full text-sm hover:bg-brand-dark shadow-md transition duration-300">
+                <button onclick="document.getElementById('contact').scrollIntoView()" class="bg-brand-blue text-white px-5 py-2 lg:px-6 rounded-full text-sm hover:bg-brand-dark shadow-md transition duration-300">
                     预约评估
                 </button>
             </div>
@@ -83,33 +127,331 @@
     </nav>
 
     <header class="relative bg-white pt-24 pb-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+        <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-50 to-transparent pointer-events-none"></div>
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-cyan/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <div class="inline-block px-5 py-2 mb-8 bg-blue-50 border border-blue-100 rounded-full text-brand-blue text-xs font-bold tracking-widest uppercase">
-                Rivus Stellge | 家族私属生命管家
+                Rivus Stellge | 家庭私属生命管家
             </div>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight serif-font text-brand-dark">
                 统筹健康与财富<br>
                 <span class="text-gradient">重构生命确定性</span>
             </h1>
-            <p class="text-lg md:text-xl text-brand-muted mb-12 max-w-3xl mx-auto font-light">
-                星溪生命，以顶级医疗资源为基，为您建立跨越岁月的防御系统与尊严护城河。
+            <p class="text-lg md:text-xl text-brand-muted mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                在这个时间比财富更昂贵的时代，您的家庭不应在多头对接中消耗精力。<br>
+                星溪生命，以顶级医疗资源为基，覆盖家政、法律、保险、营养学、旅游等为您建立跨越岁月的防御系统与尊严护城河。
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="document.getElementById('cvp').scrollIntoView()" class="bg-brand-blue text-white px-8 py-4 rounded-full shadow-soft hover:-translate-y-1 transition duration-300 text-lg font-medium">
+                <button onclick="document.getElementById('cvp').scrollIntoView()" class="bg-brand-blue text-white px-8 py-4 rounded-full shadow-soft hover:-translate-y-1 hover:shadow-hover transition duration-300 text-lg font-medium">
                     探索 28 万年度会籍
+                </button>
+                <button onclick="document.getElementById('philosophy').scrollIntoView()" class="bg-white border border-slate-200 text-brand-dark px-8 py-4 rounded-full hover:bg-slate-50 transition duration-300 text-lg font-medium">
+                    了解品牌内核
                 </button>
             </div>
         </div>
     </header>
 
+    <section id="philosophy" class="py-24 bg-brand-dark text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 serif-font">极简决策，链接顶尖资源</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                    星溪生命不盖重资产的养老院，我们是您专属的“资源中央处理器”。我们恪守三大核心价值观，为您过滤一切冗余。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/50 border border-slate-700 p-10 rounded-2xl hover:bg-slate-800 transition duration-300 group">
+                    <div class="w-16 h-16 bg-slate-700/50 text-brand-cyan rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 serif-font">极致甄选</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        拒绝海量推销与无端试错。在医疗、法务、旅行等每个核心领域，星溪仅为您严选 <span class="text-white font-bold">1-3 家金字塔尖</span> 的头部机构（如邵逸夫、盈科、华大），最大化降低您的决策成本。
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 p-10 rounded-2xl hover:bg-slate-800 transition duration-300 group">
+                    <div class="w-16 h-16 bg-slate-700/50 text-brand-blue rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 serif-font">恪守边界</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        风控是高净值服务的底线。我们的私人医生严守健康咨询边界，绝不越权诊疗；专属管家严守隐私边界，配合顶级律所为您建立绝对的 <span class="text-white font-bold">家族法商防火墙</span>，隔离财产纠纷风险。
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700 p-10 rounded-2xl hover:bg-slate-800 transition duration-300 group">
+                    <div class="w-16 h-16 bg-slate-700/50 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 serif-font">隐秘专属</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        摒弃浮夸的公开评价体系。星溪采取单线管家跟进，收集的所有健康与情绪数据，均以极度私密的精装 <span class="text-white font-bold">《私属方案册》</span> 形式向您单独汇报，提供不张扬的极致定制感。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personas" class="py-24 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-bold text-sm tracking-widest uppercase mb-2 block">为您解决核心焦虑</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark serif-font">星溪系统，护航三种关键角色</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover transition duration-300">
+                    <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-briefcase"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">企业主 / 家族一代</h4>
+                            <p class="text-xs text-brand-muted">时间极度稀缺的决策者</p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-brand-muted space-y-4">
+                        <p><strong class="text-brand-dark">核心痛点：</strong>父母年迈却无暇陪伴，惧怕突发疾病时的手足无措；同时担忧企业资产与家族财富的隔离与传承。</p>
+                        <p><strong class="text-brand-dark">星溪解法：</strong>一通电话，管家全盘接管。从120急救直连三甲绿通，到对接盈科律所设立家族信托，为您提供医疗与法商的“系统性兜底”。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover transition duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-orange text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg tracking-wider">尊享体验方</div>
+                    <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-orange-50 text-brand-orange rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-crown"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">财富自由长者</h4>
+                            <p class="text-xs text-brand-muted">注重生命质量的高知群体</p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-brand-muted space-y-4">
+                        <p><strong class="text-brand-dark">核心痛点：</strong>抗拒冰冷的传统养老院，害怕失去原有的社交圈层；不满足于普通家政，渴望科学的健康管理与情绪价值。</p>
+                        <p><strong class="text-brand-dark">星溪解法：</strong>实现“原居安老”。在自家豪宅享受康恩贝定制营养、私人医生上门，并通过考斯特接送参与高定圈层沙龙，拉满生命特权感。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-hover transition duration-300">
+                    <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                        <div class="w-12 h-12 bg-cyan-50 text-brand-cyan rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-user-doctor"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg text-brand-dark">三甲主任医师</h4>
+                            <p class="text-xs text-brand-muted">星溪的顶级生态合伙人</p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-brand-muted space-y-4">
+                        <p><strong class="text-brand-dark">合作诉求：</strong>希望为高净值病患提供院外随访与高质量照护，同时实现个人医疗品牌与合规收入的提升。</p>
+                        <p><strong class="text-brand-dark">星溪赋能：</strong>星溪作为您的“院外管理团队”，包揽场地、商务与活动策划。您只需输出专业咨询。星溪不赚差价，确保合作的纯粹与医疗的权威。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cvp" class="py-24 relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4 serif-font">28万年度会籍：一站式全景资源调度</h2>
+                <p class="text-lg text-brand-muted max-w-2xl mx-auto">
+                    这笔费用没有消失，而是成为了撬动百万级家族防御系统的杠杆。<br>
+                    <span class="text-brand-blue font-medium"><i class="fa-solid fa-hand-pointer mr-1"></i> 点击下方色块</span>，查看您的积分如何转化为顶级特权。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
+                    <div class="chart-container relative z-10">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-10 rounded-3xl border border-slate-100 shadow-hover h-full flex flex-col relative overflow-hidden transition-all duration-300">
+                    <div class="absolute -right-4 -bottom-4 text-9xl text-slate-50 font-black serif-font select-none z-0" id="bg-number">01</div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div id="budge-detail-icon" class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6 bg-blue-50 text-brand-blue transition-colors duration-300">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </div>
+                        <h3 id="budget-detail-title" class="text-2xl font-bold text-brand-dark mb-4 serif-font">高精医疗与数据筛查</h3>
+                        <p id="budget-detail-desc" class="text-brand-muted text-base leading-relaxed mb-8 flex-grow">
+                            包含邵逸夫医院高端全自费体检通道，及华大基因全家全基因组筛查。提供全年康恩贝/正金源顶级中医营养品。私人医生上门排查，建立家族专属健康档案。
+                        </p>
+                        
+                        <div class="pt-6 border-t border-slate-100 mt-auto">
+                            <span class="text-xs text-brand-muted uppercase tracking-widest font-medium block mb-3">极致优选核心供应商</span>
+                            <div id="budget-detail-partners" class="flex flex-wrap gap-2 text-brand-dark font-medium text-sm">
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">邵逸夫医院</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">华大基因</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">康恩贝</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-brand-bg border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4 serif-font">跨越周期的五大防御防线</h2>
+                <p class="text-lg text-brand-muted max-w-3xl mx-auto">
+                    从紧急救命的医疗对接，到防患未然的家族财富传承，专属管家为您一键统筹。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div class="value-card bg-white p-8 rounded-2xl border border-slate-100 xl:row-span-2 flex flex-col">
+                    <div class="icon-wrapper w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">1. 核心引流：医疗与监测</h3>
+                    <p class="text-sm text-brand-muted mb-6">尽快跟进框架，抢夺黄金救援与诊疗时间。</p>
+                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-blue mt-1 mr-2 text-xs"></i> 居家体征监测与视频警报系统</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-blue mt-1 mr-2 text-xs"></i> 24H联络中心及120急救直报</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-blue mt-1 mr-2 text-xs"></i> 三甲权威专家绿色预定机制</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-blue mt-1 mr-2 text-xs"></i> 私人医生定期上门隐患探查</li>
+                    </ul>
+                </div>
+
+                <div class="value-card bg-white p-8 rounded-2xl border border-slate-100">
+                    <div class="icon-wrapper w-12 h-12 bg-orange-50 text-brand-orange rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">2. 专业底座：法商与传承</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mt-4">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-orange mt-1 mr-2 text-xs"></i> 对接盈科行业顾问，设立家族信托</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-orange mt-1 mr-2 text-xs"></i> 遗嘱公证、亲子鉴定及婚姻咨询</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-orange mt-1 mr-2 text-xs"></i> 家族企业资产保护与隔离规划</li>
+                    </ul>
+                </div>
+
+                <div class="value-card bg-white p-8 rounded-2xl border border-slate-100">
+                    <div class="icon-wrapper w-12 h-12 bg-cyan-50 text-brand-cyan rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">3. 增值服务：健康与营养</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mt-4">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-cyan mt-1 mr-2 text-xs"></i> 康复理疗、上门助浴与心理疏导</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-cyan mt-1 mr-2 text-xs"></i> 康恩贝顶级中医保健品按月配发</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-brand-cyan mt-1 mr-2 text-xs"></i> 华大基因高端体检与AI数据解读</li>
+                    </ul>
+                </div>
+
+                <div class="value-card bg-white p-8 rounded-2xl border border-slate-100">
+                    <div class="icon-wrapper w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300"><i class="fa-solid fa-house-user"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">4. 便利项目：家政与跑腿</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mt-4">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-400 mt-1 mr-2 text-xs"></i> 金牌住家保姆、月嫂及深度保洁</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-400 mt-1 mr-2 text-xs"></i> 专属管家跑腿拿药、专车接送陪诊</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-slate-400 mt-1 mr-2 text-xs"></i> 定时定点护士上门打针换药</li>
+                    </ul>
+                </div>
+
+                <div class="value-card bg-white p-8 rounded-2xl border border-slate-100">
+                    <div class="icon-wrapper w-12 h-12 bg-indigo-50 text-indigo-500 rounded-xl flex items-center justify-center text-xl mb-6 transition-colors duration-300"><i class="fa-solid fa-plane-up"></i></div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">5. 回馈项目：旅行与圈层</h3>
+                    <ul class="space-y-3 text-sm text-slate-600 mt-4">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-indigo-400 mt-1 mr-2 text-xs"></i> 5万元光大旅行包 (含随团医疗保障)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-indigo-400 mt-1 mr-2 text-xs"></i> 全年50+次文化科普与艺术展销沙龙</li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-indigo-400 mt-1 mr-2 text-xs"></i> 高端老年圈层社交及考斯特专车接驳</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <div>
+                    <div class="mb-10">
+                        <h2 class="text-3xl font-bold mb-4 serif-font text-brand-dark">原居安老 vs 机构养老</h2>
+                        <p class="text-brand-muted leading-relaxed">
+                            传统高端机构需数百万资金质押并搬离住处。星溪生命通过轻资产A2B2C平台，实现<span class="text-brand-blue font-bold">高流动性、不设限的医疗天花板</span>，以及真正覆盖全家族的护城河。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <div class="chart-container">
+                            <canvas id="pkChart"></canvas>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-6 mt-6 text-sm font-medium">
+                            <div class="flex items-center text-brand-dark"><span class="w-3 h-3 bg-brand-blue rounded-full mr-2 shadow-sm"></span> 星溪生命 (轻资产)</div>
+                            <div class="flex items-center text-slate-400"><span class="w-3 h-3 bg-slate-300 rounded-full mr-2"></span> 传统重资产机构</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mb-10">
+                        <h2 class="text-3xl font-bold mb-4 serif-font text-brand-dark">管家年度执行沙盘</h2>
+                        <p class="text-brand-muted leading-relaxed">
+                            您的 28 万积分，将由专属管家严格按照四大阶段推进，并在年底呈交极具尊贵感的《私属方案册》。
+                        </p>
+                    </div>
+
+                    <div class="relative timeline-line space-y-8 ml-2">
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-0 w-8 h-8 bg-white border-2 border-brand-blue rounded-full flex items-center justify-center text-brand-blue font-bold shadow-sm z-10 text-xs">Q1</div>
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-brand-blue group-hover:bg-white transition duration-300">
+                                <h3 class="text-lg font-bold text-brand-dark mb-1">家族底座构建</h3>
+                                <p class="text-sm text-brand-muted mb-3">华大全家基因筛查，邵逸夫VIP体检，盈科法务初评。</p>
+                            </div>
+                        </div>
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-0 w-8 h-8 bg-white border-2 border-brand-cyan rounded-full flex items-center justify-center text-brand-cyan font-bold shadow-sm z-10 text-xs">Q2</div>
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-brand-cyan group-hover:bg-white transition duration-300">
+                                <h3 class="text-lg font-bold text-brand-dark mb-1">精准干预与高奢回馈</h3>
+                                <p class="text-sm text-brand-muted mb-3">康恩贝营养品按月配送，光大海外高端疗愈游启程，高定沙龙。</p>
+                            </div>
+                        </div>
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-0 w-8 h-8 bg-white border-2 border-brand-orange rounded-full flex items-center justify-center text-brand-orange font-bold shadow-sm z-10 text-xs">Q3</div>
+                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-brand-orange group-hover:bg-white transition duration-300">
+                                <h3 class="text-lg font-bold text-brand-dark mb-1">系统落锁与动态监控</h3>
+                                <p class="text-sm text-brand-muted mb-3">盈科家族信托/遗嘱公证落地，换季心脑血管靶向排查，深度家政。</p>
+                            </div>
+                        </div>
+                        <div class="relative pl-12 group">
+                            <div class="absolute left-0 top-0 w-8 h-8 bg-white border-2 border-slate-700 rounded-full flex items-center justify-center text-slate-700 font-bold shadow-sm z-10 text-xs"><i class="fa-solid fa-check"></i></div>
+                            <div class="bg-brand-dark text-white p-6 rounded-2xl shadow-lg border-t-4 border-brand-orange transform group-hover:scale-[1.02] transition duration-300">
+                                <h3 class="text-lg font-bold mb-1 serif-font">年底收官：呈递《私属方案册》</h3>
+                                <p class="text-sm text-slate-300 mb-2">应急绿通演练。管家为您单独闭门汇报全年健康与法商数据变化及下年度规划。</p>
+                                <span class="inline-block px-2 py-1 bg-white/10 rounded text-xs text-brand-orange border border-white/20">隐秘专属 · 绝不公开</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <footer id="contact" class="bg-brand-dark pt-16 pb-8 text-slate-300 border-t-4 border-brand-blue">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-10 flex flex-col items-center justify-center">
                 <div class="bg-white p-2 rounded-xl shadow-lg mb-6">
                     <img src="image_360439.png" alt="Rivus Stellge Logo" class="h-12 w-auto object-contain">
                 </div>
                 <h2 class="text-2xl text-white serif-font tracking-widest mb-2">开启家族防御体系</h2>
+                <p class="text-sm text-slate-400 font-light">不做重资产养老院，做您全域资源的中央处理器。</p>
             </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-10 mb-12 bg-slate-800/50 max-w-3xl mx-auto p-8 rounded-3xl border border-slate-700">
+                <div class="bg-white p-2 rounded-xl">
+                    <div class="w-32 h-32 bg-slate-100 flex items-center justify-center text-xs text-brand-dark text-center border border-slate-200">
+                        <div class="flex flex-col items-center gap-2">
+                            <i class="fa-solid fa-qrcode text-3xl text-brand-blue"></i>
+                            <span class="font-bold">扫码添加<br>高级管家</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-left">
+                    <p class="mb-4 flex items-center text-lg text-white font-medium"><i class="fa-solid fa-phone mr-3 text-brand-cyan w-5 text-center"></i> 24H 尊享热线: <span class="tracking-wider ml-1">400-STAR-VIP</span></p>
+                    <p class="mb-4 flex items-center text-slate-300"><i class="fa-solid fa-location-dot mr-3 text-brand-cyan w-5 text-center"></i> 运营中枢: 杭州市西湖区</p>
+                    <p class="text-xs mt-4 text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full inline-block border border-brand-orange/20">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> 我们承诺绝对的隐私风控与数据隔离
+                    </p>
+                </div>
+            </div>
+            
             <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 tracking-wider">
                 &copy; 2026 Rivus Stellge / 星溪生命. All Rights Reserved.
             </div>
@@ -117,7 +459,188 @@
     </footer>
 
     <script>
-        // ... (此处包含你之前的 Chart.js 逻辑)
+        // --- Light Modern Chart Theme Configuration ---
+        Chart.defaults.color = '#64748B'; 
+        Chart.defaults.font.family = '"Noto Sans SC", "Inter", sans-serif';
+        
+        // 1. Budget Breakdown Data (CVP)
+        const budgetData = {
+            labels: ['高精医疗与筛查', '法商隔离咨询', '高奢全球旅行', '管家与圈层社交'],
+            data: [100000, 80000, 50000, 50000],
+            descriptions: [
+                {
+                    id: "01",
+                    title: "高精医疗与数据筛查",
+                    icon: "fa-stethoscope",
+                    bgColor: "bg-blue-50",
+                    textColor: "text-brand-blue",
+                    text: "包含邵逸夫医院高端全自费体检通道，及华大基因全家全基因组筛查。提供全年康恩贝/正金源顶级中医营养品。私人医生上门排查，建立家族专属健康档案。",
+                    partners: ["邵逸夫医院", "华大基因", "康恩贝"]
+                },
+                {
+                    id: "02",
+                    title: "法商隔离与传承",
+                    icon: "fa-scale-balanced",
+                    bgColor: "bg-orange-50",
+                    textColor: "text-brand-orange",
+                    text: "对接北京盈科律师事务所高级合伙人团队。执行遗嘱公证、家族信托架构部署、企业与家庭资产风险隔离规划，为财富建立坚固的防火墙。",
+                    partners: ["北京盈科律所"]
+                },
+                {
+                    id: "03",
+                    title: "高奢疗愈旅行",
+                    icon: "fa-plane-departure",
+                    bgColor: "bg-cyan-50",
+                    textColor: "text-brand-cyan",
+                    text: "实打实的年度旅行成本包。兑换光大旅行社定制的4次国内或2次海外高端疗愈游，附带随团医疗保障模块，确保长辈出行无忧。",
+                    partners: ["光大旅行社"]
+                },
+                {
+                    id: "04",
+                    title: "私属管家与社交",
+                    icon: "fa-user-tie",
+                    bgColor: "bg-slate-100",
+                    textColor: "text-slate-600",
+                    text: "分配一位全年无休的高级管家，统筹所有预约与医疗绿通。包含每周考斯特专线接送、全年50+次高阶线下沙龙（艺术品鉴、健康讲座）。",
+                    partners: ["星溪管家团队", "高定圈层平台"]
+                }
+            ]
+        };
+
+        // Initialize Doughnut Chart (Budget)
+        const ctxBudget = document.getElementById('budgetChart').getContext('2d');
+        const budgetChart = new Chart(ctxBudget, {
+            type: 'doughnut',
+            data: {
+                labels: budgetData.labels,
+                datasets: [{
+                    data: budgetData.data,
+                    backgroundColor: ['#1E4ED8', '#F59E0B', '#0EA5E9', '#94A3B8'],
+                    borderWidth: 2,
+                    borderColor: '#F8FAFC',
+                    hoverOffset: 8,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, color: '#1E293B', font: { weight: '500' } }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        titleColor: '#FFFFFF',
+                        bodyColor: '#F8FAFC',
+                        padding: 12,
+                        cornerRadius: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return ' 配额: ¥' + context.raw.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                onClick: (e, activeElements) => {
+                    if (activeElements.length > 0) {
+                        const index = activeElements[0].index;
+                        updateBudgetDetail(index);
+                    }
+                }
+            }
+        });
+
+        // Initialize Radar Chart (Comparison)
+        const ctxPK = document.getElementById('pkChart').getContext('2d');
+        const pkChart = new Chart(ctxPK, {
+            type: 'radar',
+            data: {
+                labels: ['资产流动率', '医疗天花板', '居住自由度', '家族覆盖域', '法商隔离度'],
+                datasets: [{
+                    label: '星溪生命 (轻资产)',
+                    data: [95, 95, 100, 90, 90],
+                    fill: true,
+                    backgroundColor: 'rgba(30, 78, 216, 0.15)', // Light Brand Blue
+                    borderColor: '#1E4ED8',
+                    pointBackgroundColor: '#1E4ED8',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#1E4ED8'
+                }, {
+                    label: '传统重资产机构',
+                    data: [30, 60, 40, 30, 20],
+                    fill: true,
+                    backgroundColor: 'rgba(148, 163, 184, 0.15)', // Slate
+                    borderColor: '#94A3B8',
+                    pointBackgroundColor: '#94A3B8',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#94A3B8'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        pointLabels: { color: '#475569', font: { size: 12, weight: '500' } },
+                        ticks: { display: false, backdropColor: 'transparent' },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: { display: false } // Custom legend built in HTML
+                }
+            }
+        });
+
+        // --- Interaction Logic for CVP Update ---
+        function updateBudgetDetail(index) {
+            const data = budgetData.descriptions[index];
+            const iconContainer = document.getElementById('budge-detail-icon');
+            const title = document.getElementById('budget-detail-title');
+            const desc = document.getElementById('budget-detail-desc');
+            const partners = document.getElementById('budget-detail-partners');
+            const bgNumber = document.getElementById('bg-number');
+
+            // Quick fade out
+            title.style.opacity = 0;
+            desc.style.opacity = 0;
+            bgNumber.style.opacity = 0;
+            iconContainer.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Update content
+                iconContainer.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+                iconContainer.className = `w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6 transition-colors duration-300 ${data.bgColor} ${data.textColor}`;
+                
+                title.innerText = data.title;
+                desc.innerText = data.text;
+                bgNumber.innerText = data.id;
+                
+                partners.innerHTML = data.partners.map(p => 
+                    `<span class="bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">${p}</span>`
+                ).join('');
+                
+                // Fade in
+                title.style.transition = 'opacity 0.3s ease';
+                desc.style.transition = 'opacity 0.3s ease';
+                bgNumber.style.transition = 'opacity 0.3s ease';
+                iconContainer.style.transition = 'opacity 0.3s ease';
+                
+                title.style.opacity = 1;
+                desc.style.opacity = 1;
+                bgNumber.style.opacity = 1;
+                iconContainer.style.opacity = 1;
+            }, 200);
+        }
+
     </script>
-</body>
+    
+    </body>
 </html>
