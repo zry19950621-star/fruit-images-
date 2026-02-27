@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星溪生命 Rivus Stellge | 家族私属生命管家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1E4ED8', // 呼应 Logo 深蓝色调
+                        'brand-cyan': '#0EA5E9', // 呼应 Logo 浅蓝波浪
+                        'brand-orange': '#F59E0B', 
+                        'brand-dark': '#0F172A', 
+                        'brand-bg': '#F8FAFC', 
+                        'brand-surface': '#FFFFFF', 
+                        'brand-muted': '#64748B', 
+                    },
+                    fontFamily: {
+                        'serif': ['"Noto Serif SC"', 'serif'],
+                        'sans': ['"Noto Sans SC"', '"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(30, 78, 216, 0.08)',
+                        'hover': '0 20px 40px -10px rgba(30, 78, 216, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+        h1, h2, h3, .serif-font { font-family: 'Noto Serif SC', serif; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; height: 320px; margin: auto; }
+        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        html { scroll-behavior: smooth; }
+        .text-gradient {
+            background: linear-gradient(135deg, #1E4ED8 0%, #0EA5E9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-premium { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
+        .timeline-line::before {
+            content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 2px;
+            background: linear-gradient(to bottom, #1E4ED8 0%, #0EA5E9 50%, #F59E0B 100%);
+            opacity: 0.2; z-index: 0;
+        }
+        .value-card { transition: all 0.4s ease; }
+        .value-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(30, 78, 216, 0.12); }
+        .value-card:hover .icon-wrapper { background-color: #1E4ED8; color: white; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-blue selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <img src="image_360439.png" alt="Rivus Stellge Logo" class="h-10 md:h-12 w-auto object-contain">
+                    <div class="text-xl md:text-2xl font-bold text-brand-dark serif-font hidden sm:block border-l border-slate-200 pl-3">
+                        星溪生命
+                    </div>
+                </div>
+                <div class="hidden lg:flex space-x-8 font-medium text-sm text-brand-muted">
+                    <a href="#philosophy" class="hover:text-brand-blue transition">品牌理念</a>
+                    <a href="#personas" class="hover:text-brand-blue transition">专属服务</a>
+                    <a href="#cvp" class="hover:text-brand-blue transition">权益全景</a>
+                    <a href="#services" class="hover:text-brand-blue transition">资源矩阵</a>
+                    <a href="#timeline" class="hover:text-brand-blue transition">年度排期</a>
+                </div>
+                <button onclick="document.getElementById('contact').scrollIntoView()" class="bg-brand-blue text-white px-6 py-2 rounded-full text-sm hover:bg-brand-dark shadow-md transition duration-300">
+                    预约评估
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative bg-white pt-24 pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="inline-block px-5 py-2 mb-8 bg-blue-50 border border-blue-100 rounded-full text-brand-blue text-xs font-bold tracking-widest uppercase">
+                Rivus Stellge | 家族私属生命管家
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight serif-font text-brand-dark">
+                统筹健康与财富<br>
+                <span class="text-gradient">重构生命确定性</span>
+            </h1>
+            <p class="text-lg md:text-xl text-brand-muted mb-12 max-w-3xl mx-auto font-light">
+                星溪生命，以顶级医疗资源为基，为您建立跨越岁月的防御系统与尊严护城河。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="document.getElementById('cvp').scrollIntoView()" class="bg-brand-blue text-white px-8 py-4 rounded-full shadow-soft hover:-translate-y-1 transition duration-300 text-lg font-medium">
+                    探索 28 万年度会籍
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <footer id="contact" class="bg-brand-dark pt-16 pb-8 text-slate-300 border-t-4 border-brand-blue">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-10 flex flex-col items-center justify-center">
+                <div class="bg-white p-2 rounded-xl shadow-lg mb-6">
+                    <img src="image_360439.png" alt="Rivus Stellge Logo" class="h-12 w-auto object-contain">
+                </div>
+                <h2 class="text-2xl text-white serif-font tracking-widest mb-2">开启家族防御体系</h2>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 tracking-wider">
+                &copy; 2026 Rivus Stellge / 星溪生命. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ... (此处包含你之前的 Chart.js 逻辑)
+    </script>
+</body>
+</html>
